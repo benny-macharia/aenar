@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { IoIosStarOutline } from "react-icons/io";
+import OfficialContentDetailsTabs from "./official-details-tabs";
 export default function OfficialDetails() {
     return (
         <div className="flex flex-col space-y-2 items-center">
@@ -12,12 +13,11 @@ export default function OfficialDetails() {
             <p className="text-gray-500">Senator. Nairobi, Kenya</p>
             <div className="flex items-center space-x-2">
                     <IoIosStarOutline />
-                    <p>4.5</p>
+                    <p>9.0</p>
                 </div>
             </div>
-
-            <div>
-                <h2 className="font-semibold">Ratings</h2>
+            <div className="flex flex-row justify-around space-x-5">
+                <OfficialContentDetailsTabs />
             </div>
         </div>
     )
