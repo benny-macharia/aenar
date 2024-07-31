@@ -33,7 +33,7 @@ const links = [
 export default function Ratings(){
 
     return(
-        <div className="space-y-5">
+        <div className="flex flex-row space-x-5">
             <>
             {links.map((link) => {
         
@@ -41,14 +41,17 @@ export default function Ratings(){
           <Link
             key={link.name}
             href={link.href}
-            className="flex flex-row space-x-2">
-            <p className="hidden md:block">
-              <link.icon className="w-7 h-7"/>
-            </p>
-            <p>{link.name}</p>
-            <div>
-            <IoIosStarOutline size={20}/>
+            className="flex flex-row space-x-3">
+              <p className="hidden md:block">
+                <link.icon className="w-7 h-7"/>
+                </p>
+              <div className="flex flex-col space-x-2">
+                <p className="font-semibold text-md">{link.name}</p>
+                <div className="flex flex-row ml-10 space-x-2">
+              <IoIosStarOutline size={20}/>
+              <p>9.0</p>
             </div>
+              </div>
           </Link>
         );
       })}
