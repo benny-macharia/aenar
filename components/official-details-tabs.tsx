@@ -4,6 +4,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 export default function OfficialContentDetailsTabs() {
     return (
@@ -30,12 +31,25 @@ function OfficialDetailsTabLinks() {
 
     return (
         <div className="flex flex-row justify-around space-x-5 mb-5">
-            <Link href="/official/ratings">
-                <h2 className="font-semibold">Ratings</h2>
-            </Link>
-            <Link href="/official/about">
-                <h2 className="font-semibold">About</h2>
-            </Link>
+           {links.map((link) => {
+        
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={clsx(
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 text-sm font-medium hover:underline md:flex-none md:justify-start md:p-2 md:px-3',
+              {
+                'underline underline-offset-8 font-black': pathname === link.href,
+              },
+            )}
+          >
+            <p className="hidden md:block font-semibold text-lg">
+              {link.name}
+            </p>
+          </Link>
+        );
+      })}
         </div>
     )
 }

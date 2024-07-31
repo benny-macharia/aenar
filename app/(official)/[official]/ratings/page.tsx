@@ -33,7 +33,7 @@ const links = [
 export default function Ratings(){
 
     return(
-        <div className="flex flex-row space-x-5">
+        <div className="flex flex-row space-x-8">
             <>
             {links.map((link) => {
         
