@@ -1,5 +1,4 @@
 // These are the tabs found in the officials ratings page. 
-
 'use client'
 
 import Link from 'next/link'

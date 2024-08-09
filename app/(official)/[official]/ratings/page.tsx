@@ -4,6 +4,8 @@ import { FaRoad } from "react-icons/fa6";
 import { GiPlantsAndAnimals } from "react-icons/gi";
 import { MdOutlineHealthAndSafety } from "react-icons/md";
 import Link from "next/link";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+
 
 
 const links = [
@@ -13,7 +15,7 @@ const links = [
         icon: IoShieldOutline,
     },
     {
-        name: 'Projects',
+        name: 'Transport',
         href: '/official/transport',
         icon: FaRoad,
     },
@@ -33,26 +35,30 @@ const links = [
 export default function Ratings(){
 
     return(
-        <div className="flex flex-row space-x-8">
+        <div className="grid grid-cols-4 gap-4">
             <>
             {links.map((link) => {
-        
         return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className="flex flex-row space-x-3">
-              <p className="hidden md:block">
-                <link.icon className="w-7 h-7"/>
-                </p>
-              <div className="flex flex-col space-x-2">
-                <p className="font-semibold text-md">{link.name}</p>
-                <div className="flex flex-row ml-10 space-x-2">
-              <IoIosStarOutline size={20}/>
-              <p>9.0</p>
-            </div>
+          <Dialog key={link.name} >
+            <DialogTrigger asChild>
+              <div
+                className="flex flex-row space-x-3 hover:cursor-pointer hover:text-lg">
+                  <p className="hidden md:block">
+                    <link.icon className="w-7 h-7"/>
+                    </p>
+                  <div className="flex flex-col space-x-2">
+                    <p className="font-semibold text-md">{link.name}</p>
+                    <div className="flex flex-row ml-10 space-x-2">
+                  <IoIosStarOutline size={20}/>
+                  <p>9.0</p>
+                </div>
+                  </div>
               </div>
-          </Link>
+            </DialogTrigger>
+            <DialogContent>
+              <h1>{link.name}</h1>
+            </DialogContent>
+          </Dialog>
         );
       })}
         </>
